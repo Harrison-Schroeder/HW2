@@ -75,14 +75,14 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
-# TODO!
+# Done
 
 # Generate models and tables, according to the domain model.
-# TODO!
+# Done
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
-# TODO!
+# Done
 
 # Prints a header for the movies output
 puts "Movies"
