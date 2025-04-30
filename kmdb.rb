@@ -84,24 +84,16 @@
 # Do not use hard-coded foreign key IDs.
 # Done
 
-# Prints a header for the movies output
-puts "Movies"
-puts "======"
-puts ""
-
 # Query the movies data and loop through the results to display the movies output.
-# TODO!
+# Done
 
-# Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+# Done
 
-#First executed rails generate model for the four tables
+#Start of Assignment
+
+# First executed rails generate model for the four tables
 # Populated the tables in the db migrate files
 # Ran the migrations for each table
 
@@ -294,7 +286,26 @@ new_role["actor_id"] = hathaway["id"]
 new_role["character_name"] = "Selina Kyle"
 new_role.save
 
-puts "There are #{Movie.all.count} movies"
-puts "There are #{Studio.all.count} studios"
-puts "There are #{Actor.all.count} actors"
-puts "There are #{Role.all.count} roles"
+# Prints a header for the movies output
+puts "Movies"
+puts "======"
+puts ""
+for movie in Movie.all
+    title = movie["title"] 
+    year = movie["year_released"]
+    rated = movie["rated"]
+    studio_name = Studio.find_by({"id" => movie["studio_id"]})["name"]
+    puts "#{title}    #{year}    #{rated}    #{studio_name}"
+end 
+
+# Prints a header for the cast output
+puts ""
+puts "Top Cast"
+puts "========"
+puts ""
+for role in Role.all
+    movie_title = Movie.find_by({"id" => role["movie_id"]})["title"]
+    actor_name = Actor.find_by({"id" => role["actor_id"]})["name"]
+    character = role["character_name"]
+    puts "#{movie_title}    #{actor_name}    #{character}"
+end 
